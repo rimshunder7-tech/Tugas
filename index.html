@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <!-- wajib ada, biar semua huruf termasuk yang aneh-aneh gak jadi kotak error -->
+    <meta charset="UTF-8">
+      <!-- ini yang muncul di bawah judul biru pas orang cari lewat google -->
+        <meta name="description" content="Bulan Bakery, roti fresh setiap hari di Ketapang. Dipanggang sejak jam tiga pagi dengan bahan pilihan.">
+          <!-- tanpa ini tampilan di hp jadi kecil banget, kayak liat versi desktop yang diperkecil -->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <!-- panggil file css, semua warna dan bentuk kotak diatur dari sini -->
+        <link rel="stylesheet" href="ark.css">
+      <!-- logo bulan yang nongol di tab browser -->
+    <link rel="icon" href="img/logo-bulan.svg" type="image/svg+xml">
+  <!-- nama yang keliatan di tab -->
+<title>Bulan Bakery</title>
+</head>
+<body>
+  <!-- skip link: elemen pertama yang kena Tab, sembunyi sampai difokus, lompat ke id di bawah -->
+  <a class="skip-link" href="#konten-utama">Lompat ke konten utama</a>
+  <!-- header: bagian atas halaman, biasanya isinya logo dan nama situs -->
+  <header>
+    <h1>Bulan Bakery</h1>
+  </header>
+  <!-- nav: khusus buat kumpulan link navigasi, bukan buat teks biasa -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="katalog.html">Produk</a></li>
+    </ul>
+  </nav>
+  <!-- main: cuma boleh satu per halaman, id ini harus persis sama sama href di skip link -->
+  <main id="konten-utama">
+    <!-- section: mengelompokkan konten yang temanya sama, id="tentang" jadi tujuan link di footer -->
+    <section id="tentang">
+      <h2>Kenapa orang balik lagi</h2>
+      <p>dikarenakan rasa yang lezat serta harga yang murah</p>
+    </section>
+    <!-- article: satu unit konten yang berdiri sendiri, tetap masuk akal walau dicopot dari halaman ini -->
+    <article class="kartu">
+      <figure>
+        <img src="img/Roti_premium.jpg" alt="Roti tawar premium yang dipotong, teksturnya padat" width="400" height="300">
+        <figcaption>Berat bersih 400 gram.</figcaption>
+      </figure>
+      <h3>Roti Tawar Premium</h3>
+      <p>Lembut, teksturnya padat...</p>
+    </article>
+    <!-- aside: konten sampingan, bukan alur utama, misalnya jam buka atau iklan kecil -->
+    <aside>
+      <h2>Jam Buka</h2>
+      <p>Senin sampai Sabtu, 06:30 sampai 19.00</p>
+    </aside>
+    <table>
+      <!-- caption wajib, ini judul tabel, dibaca duluan sama screen reader -->
+      <caption>Lima menu tetap, harga berlaku September 2026</caption>
+      <thead>
+        <tr>
+          <!-- scope="col" nunjukin sel ini header buat kolom di bawahnya -->
+          <th scope="col">Produk</th>
+          <th scope="col">Ukuran</th>
+          <th scope="col">Harga</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <!-- scope="row" nunjukin sel ini header buat baris ke samping -->
+          <th scope="row">Roti Coffee Buns</th>
+          <td>80 g</td>
+          <td>Rp 15.000</td>
+        </tr>
+        <tr>
+          <th scope="row">Roti Coklat Kornet</th>
+          <td>80 g</td>
+          <td>Rp 22.000</td>
+        </tr>
+        <tr>
+          <th scope="row">Croissant</th>
+          <td>70 g</td>
+          <td>Rp 20.000</td>
+        </tr>
+        <tr>
+          <th scope="row">Cromboloni</th>
+          <td>110 g</td>
+          <td>Rp 32.000</td>
+        </tr>
+        <tr>
+          <th scope="row">Pretzel</th>
+          <td>70 g</td>
+          <td>Rp 24.000</td>
+        </tr>
+      </tbody>
+    </table>
+    <form action="#" method="get">
+      <!-- fieldset ngelompokin input yang berkaitan, legend jadi judul kelompoknya -->
+      <fieldset>
+        <legend>Data pemesan</legend>
+        <!-- for="nama" nyambung ke id="nama", klik label kursor otomatis masuk input -->
+        <label for="nama">Nama lengkap</label>
+        <input type="text" id="nama" name="nama" required>
+        <!-- required: browser nolak submit kalau kosong, tanpa JavaScript -->
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <!-- type="email": browser otomatis cek formatnya ada @ dan domain -->
+        <label for="telepon">Nomor WhatsApp</label>
+        <input type="tel" id="telepon" name="telepon" pattern="08[0-9]{8,11}" title="Nomor harus diawali 08, diikuti 8 sampai 11 digit angka">
+        <!-- pattern: browser cek nomor harus mulai 08, diikuti 8-11 digit -->
+        <!-- id diganti "pesanan", sebelumnya kembar sama input nama di atas -->
+        <label for="pesanan">Yang dipesan</label>
+        <input type="text" id="pesanan" name="pesanan" required>
+      </fieldset>
+      <button type="submit">Kirim</button>
+    </form>
+  </main>
+  <!-- footer: bagian bawah halaman, sejajar sama main, bukan di dalamnya -->
+  <footer id="kontak">
+    <p>
+      <!-- href isi alamat tujuan, target="_blank" buka tab baru, rel="noopener noreferrer" tutup celah keamanan -->
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <!-- mailto: buka aplikasi email default, kolom "To" otomatis keisi alamat ini -->
+      <a href="mailto:halo@bulanbakery.id">halo@bulanbakery.id</a>
+      <!-- tel: buka aplikasi telepon, format internasional (+62) di href biar dikenali semua HP -->
+      <a href="tel:+62811900123">0811 900 1234</a>
+    </p>
+    <p>&copy; 2026 Bulan Bakery</p>
+  </footer>
+</body>
+</html>
