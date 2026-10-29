@@ -5,95 +5,104 @@
   <meta name="description" content="Katalog lengkap Bulan Bakery: roti dan pastry beserta harga dan masa simpan.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- panggil file css yang SAMA dengan index.html, biar tampilan dua halaman konsisten -->
-  <link rel="stylesheet" href="ark.css">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="assets/js/tema.js"></script>
+  <style type="text/tailwindcss">
+    @layer components {
+      .navlink { @apply rounded-md px-3 py-2 text-sm font-medium transition hover:bg-amber-100 aria-[current=page]:font-bold aria-[current=page]:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:hover:bg-stone-700 dark:focus-visible:outline-amber-300; }
+      .btn { @apply inline-block rounded-lg bg-amber-700 px-5 py-2.5 font-semibold text-white shadow transition hover:bg-amber-800 hover:shadow-md active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400 dark:focus-visible:outline-amber-300; }
+      .kartu { @apply overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-amber-200 transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-stone-800 dark:ring-stone-700; }
+      .field { @apply w-full rounded-lg border border-stone-500 bg-white px-3 py-2 shadow-sm transition focus:border-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-600 [&:user-invalid]:border-red-700 dark:border-stone-400 dark:bg-stone-800; }
+    }
+  </style>
   <link rel="icon" href="img/logo-bulan.svg" type="image/svg+xml">
   <title>Produk | Bulan Bakery</title>
 </head>
-<body>
+<body class="bg-amber-50 font-sans text-stone-900 antialiased transition-colors duration-300 dark:bg-stone-900 dark:text-stone-100">
   <!-- skip link: sebelumnya halaman ini gak punya sama sekali -->
-  <a class="skip-link" href="#konten-utama">Lompat ke konten utama</a>
-  <header>
-    <h1>Bulan Bakery</h1>
+  <a class="skip-link sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-amber-700 focus:px-4 focus:py-2 focus:text-white" href="#konten-utama">Lompat ke konten utama</a>
+  <header class="mx-auto max-w-5xl px-4 pt-8">
+    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">Bulan Bakery</h1>
   </header>
-  <nav>
-    <ul>
-      <li><a href="index.html">Beranda</a></li>
-      <li><a href="katalog.html">Produk</a></li>
+  <nav class="mx-auto mt-4 flex max-w-5xl flex-wrap items-center justify-between gap-3 border-b border-amber-200 px-4 pb-4 dark:border-stone-700">
+    <ul class="flex gap-1">
+      <li><a class="navlink" href="index.html">Beranda</a></li>
+      <li><a class="navlink" href="katalog.html" aria-current="page">Produk</a></li>
     </ul>
+    <button id="tema" type="button" aria-pressed="false" class="rounded-lg border border-stone-500 px-3 py-2 text-sm transition hover:bg-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:border-stone-400 dark:hover:bg-stone-700">Mode gelap</button>
   </nav>
   <!-- main: sebelumnya gak ada, semua artikel produk langsung jadi anak body -->
-  <main id="konten-utama">
-    <h2>Semua Produk</h2>
+  <main id="konten-utama" class="mx-auto grid max-w-5xl gap-6 px-4 py-10 sm:grid-cols-2 lg:grid-cols-3">
+    <h2 class="col-span-full text-3xl font-bold tracking-tight">Semua Produk</h2>
     <!-- article: satu produk berdiri sendiri, masuk akal walau dicopot dari halaman ini -->
     <article class="kartu">
       <figure>
-        <img src="img/COFFEE_BUNS_ROTI_BOY.jpg" alt="Coffee buns, roti manis dengan lapisan kopi renyah di luar" width="400" height="300">
-        <figcaption>Berat bersih 80 gram.</figcaption>
+        <img class="aspect-[4/3] w-full object-cover" src="img/COFFEE_BUNS_ROTI_BOY.jpg" alt="Coffee buns, roti manis dengan lapisan kopi renyah di luar" width="400" height="300">
+        <figcaption class="px-5 pt-3 text-sm text-stone-700 dark:text-stone-300">Berat bersih 80 gram.</figcaption>
       </figure>
-      <h3>Coffee Buns</h3>
-      <p>Roti manis bertekstur kontras, memadukan kelembutan roti di dalam dengan kerenyahan lapisan kopi di luar.</p>
-      <dl class="spek">
-        <dt>Harga</dt><dd>Rp 15.000</dd>
-        <dt>Masa simpan</dt><dd>3–5 hari di dalam kulkas jika disimpan dalam wadah kedap udara</dd>
+      <h3 class="px-5 pt-3 text-xl font-semibold">Coffee Buns</h3>
+      <p class="px-5 pt-1 text-stone-700 dark:text-stone-300">Roti manis bertekstur kontras, memadukan kelembutan roti di dalam dengan kerenyahan lapisan kopi di luar.</p>
+      <dl class="spek grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 px-5 pb-5 pt-3 text-sm">
+        <dt class="font-semibold">Harga</dt><dd>Rp 15.000</dd>
+        <dt class="font-semibold">Masa simpan</dt><dd class="text-stone-700 dark:text-stone-300">3–5 hari di dalam kulkas jika disimpan dalam wadah kedap udara</dd>
       </dl>
     </article>
     <article class="kartu">
       <figure>
-        <img src="img/chocolate_cornet.jpg" alt="Kornet roti coklat dengan isian yang lumer" width="400" height="300">
-        <figcaption>Berat bersih 80 gram.</figcaption>
+        <img class="aspect-[4/3] w-full object-cover" src="img/chocolate_cornet.jpg" alt="Kornet roti coklat dengan isian yang lumer" width="400" height="300">
+        <figcaption class="px-5 pt-3 text-sm text-stone-700 dark:text-stone-300">Berat bersih 80 gram.</figcaption>
       </figure>
-      <h3>Kornet Coklat</h3>
-      <p>Roti manis bergaya Jepang berbentuk tanduk dengan isian krim atau selai cokelat di dalamnya.</p>
-      <dl class="spek">
-        <dt>Harga</dt><dd>Rp 22.000</dd>
-        <dt>Masa simpan</dt><dd>5–7 hari di dalam kulkas, tekstur bisa lebih kering akibat pendinginan</dd>
+      <h3 class="px-5 pt-3 text-xl font-semibold">Kornet Coklat</h3>
+      <p class="px-5 pt-1 text-stone-700 dark:text-stone-300">Roti manis bergaya Jepang berbentuk tanduk dengan isian krim atau selai cokelat di dalamnya.</p>
+      <dl class="spek grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 px-5 pb-5 pt-3 text-sm">
+        <dt class="font-semibold">Harga</dt><dd>Rp 22.000</dd>
+        <dt class="font-semibold">Masa simpan</dt><dd class="text-stone-700 dark:text-stone-300">5–7 hari di dalam kulkas, tekstur bisa lebih kering akibat pendinginan</dd>
       </dl>
     </article>
     <article class="kartu">
       <figure>
-        <img src="img/molen.jpg" alt="Croissant dengan tekstur luar renyah dan bagian dalam lembut" width="400" height="300">
-        <figcaption>Berat bersih 70 gram.</figcaption>
+        <img class="aspect-[4/3] w-full object-cover" src="img/molen.jpg" alt="Croissant dengan tekstur luar renyah dan bagian dalam lembut" width="400" height="300">
+        <figcaption class="px-5 pt-3 text-sm text-stone-700 dark:text-stone-300">Berat bersih 70 gram.</figcaption>
       </figure>
-      <h3>Croissant</h3>
-      <p>Kue kering berlapis asal Prancis yang terkenal dengan bentuk bulan sabit.</p>
-      <dl class="spek">
-        <dt>Harga</dt><dd>Rp 20.000</dd>
-        <dt>Masa simpan</dt><dd>5–7 hari, tekstur bisa agak melempem</dd>
+      <h3 class="px-5 pt-3 text-xl font-semibold">Croissant</h3>
+      <p class="px-5 pt-1 text-stone-700 dark:text-stone-300">Kue kering berlapis asal Prancis yang terkenal dengan bentuk bulan sabit.</p>
+      <dl class="spek grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 px-5 pb-5 pt-3 text-sm">
+        <dt class="font-semibold">Harga</dt><dd>Rp 20.000</dd>
+        <dt class="font-semibold">Masa simpan</dt><dd class="text-stone-700 dark:text-stone-300">5–7 hari, tekstur bisa agak melempem</dd>
       </dl>
     </article>
     <article class="kartu">
       <figure>
-        <img src="img/cromboloni.jpg" alt="Cromboloni, pastry bulat dengan isian krim lumer" width="400" height="300">
-        <figcaption>Berat bersih 110 gram.</figcaption>
+        <img class="aspect-[4/3] w-full object-cover" src="img/cromboloni.jpg" alt="Cromboloni, pastry bulat dengan isian krim lumer" width="400" height="300">
+        <figcaption class="px-5 pt-3 text-sm text-stone-700 dark:text-stone-300">Berat bersih 110 gram.</figcaption>
       </figure>
-      <h3>Cromboloni</h3>
-      <p>Pastry berbentuk bulat padat, memadukan tekstur renyah berlapis khas croissant dengan isian krim lumer ala bomboloni.</p>
-      <dl class="spek">
-        <dt>Harga</dt><dd>Rp 32.000</dd>
-        <dt>Masa simpan</dt><dd>3–4 hari di dalam kulkas jika disimpan dalam wadah kedap udara</dd>
+      <h3 class="px-5 pt-3 text-xl font-semibold">Cromboloni</h3>
+      <p class="px-5 pt-1 text-stone-700 dark:text-stone-300">Pastry berbentuk bulat padat, memadukan tekstur renyah berlapis khas croissant dengan isian krim lumer ala bomboloni.</p>
+      <dl class="spek grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 px-5 pb-5 pt-3 text-sm">
+        <dt class="font-semibold">Harga</dt><dd>Rp 32.000</dd>
+        <dt class="font-semibold">Masa simpan</dt><dd class="text-stone-700 dark:text-stone-300">3–4 hari di dalam kulkas jika disimpan dalam wadah kedap udara</dd>
       </dl>
     </article>
     <article class="kartu">
       <figure>
-        <img src="img/pretzel.jpg" alt="Pretzel dengan tekstur renyah dan bentuk simpul tali khas" width="400" height="300">
-        <figcaption>Berat bersih 70 gram.</figcaption>
+        <img class="aspect-[4/3] w-full object-cover" src="img/pretzel.jpg" alt="Pretzel dengan tekstur renyah dan bentuk simpul tali khas" width="400" height="300">
+        <figcaption class="px-5 pt-3 text-sm text-stone-700 dark:text-stone-300">Berat bersih 70 gram.</figcaption>
       </figure>
-      <h3>Pretzel</h3>
-      <p>Kue panggang tradisional khas Eropa, terkenal dengan bentuknya yang unik menyerupai simpul tali.</p>
-      <dl class="spek">
-        <dt>Harga</dt><dd>Rp 24.000</dd>
-        <dt>Masa simpan</dt><dd>2–3 hari di dalam kulkas jika disimpan dalam wadah kedap udara</dd>
+      <h3 class="px-5 pt-3 text-xl font-semibold">Pretzel</h3>
+      <p class="px-5 pt-1 text-stone-700 dark:text-stone-300">Kue panggang tradisional khas Eropa, terkenal dengan bentuknya yang unik menyerupai simpul tali.</p>
+      <dl class="spek grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 px-5 pb-5 pt-3 text-sm">
+        <dt class="font-semibold">Harga</dt><dd>Rp 24.000</dd>
+        <dt class="font-semibold">Masa simpan</dt><dd class="text-stone-700 dark:text-stone-300">2–3 hari di dalam kulkas jika disimpan dalam wadah kedap udara</dd>
       </dl>
     </article>
   </main>
   <!-- footer: sebelumnya gak ada sama sekali di halaman ini -->
-  <footer>
-    <p>
-      <a href="mailto:halo@bulanbakery.id">halo@bulanbakery.id</a>
-      <a href="tel:+62811900123">0811 900 1234</a>
+  <footer class="mx-auto mt-12 max-w-5xl border-t border-amber-200 px-4 py-8 text-center text-sm text-stone-700 dark:border-stone-700 dark:text-stone-300">
+    <p class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+      <a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="mailto:halo@bulanbakery.id">halo@bulanbakery.id</a>
+      <a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="tel:+62811900123">0811 900 1234</a>
     </p>
-    <p>&copy; 2026 Bulan Bakery</p>
+    <p class="mt-3">&copy; 2026 Bulan Bakery</p>
   </footer>
-
 </body>
 </html>

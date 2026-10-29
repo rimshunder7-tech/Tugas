@@ -8,51 +8,62 @@
           <!-- tanpa ini tampilan di hp jadi kecil banget, kayak liat versi desktop yang diperkecil -->
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <!-- panggil file css, semua warna dan bentuk kotak diatur dari sini -->
-        <link rel="stylesheet" href="ark.css">
+        <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+        <script src="assets/js/tema.js"></script>
+        <style type="text/tailwindcss">
+          @layer components {
+            .navlink { @apply rounded-md px-3 py-2 text-sm font-medium transition hover:bg-amber-100 aria-[current=page]:font-bold aria-[current=page]:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:hover:bg-stone-700 dark:focus-visible:outline-amber-300; }
+            .btn { @apply inline-block rounded-lg bg-amber-700 px-5 py-2.5 font-semibold text-white shadow transition hover:bg-amber-800 hover:shadow-md active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400 dark:focus-visible:outline-amber-300; }
+            .kartu { @apply overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-amber-200 transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-stone-800 dark:ring-stone-700; }
+            .field { @apply w-full rounded-lg border border-stone-500 bg-white px-3 py-2 shadow-sm transition focus:border-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-600 [&:user-invalid]:border-red-700 dark:border-stone-400 dark:bg-stone-800; }
+          }
+        </style>
       <!-- logo bulan yang nongol di tab browser -->
     <link rel="icon" href="img/logo-bulan.svg" type="image/svg+xml">
   <!-- nama yang keliatan di tab -->
 <title>Bulan Bakery</title>
 </head>
-<body>
+<body class="bg-amber-50 font-sans text-stone-900 antialiased transition-colors duration-300 dark:bg-stone-900 dark:text-stone-100">
   <!-- skip link: elemen pertama yang kena Tab, sembunyi sampai difokus, lompat ke id di bawah -->
-  <a class="skip-link" href="#konten-utama">Lompat ke konten utama</a>
+  <a class="skip-link sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-amber-700 focus:px-4 focus:py-2 focus:text-white" href="#konten-utama">Lompat ke konten utama</a>
   <!-- header: bagian atas halaman, biasanya isinya logo dan nama situs -->
-  <header>
-    <h1>Bulan Bakery</h1>
+  <header class="mx-auto max-w-5xl px-4 pt-8">
+    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">Bulan Bakery</h1>
   </header>
   <!-- nav: khusus buat kumpulan link navigasi, bukan buat teks biasa -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Beranda</a></li>
-      <li><a href="katalog.html">Produk</a></li>
+  <nav class="mx-auto mt-4 flex max-w-5xl flex-wrap items-center justify-between gap-3 border-b border-amber-200 px-4 pb-4 dark:border-stone-700">
+    <ul class="flex gap-1">
+      <li><a class="navlink" href="index.html" aria-current="page">Beranda</a></li>
+      <li><a class="navlink" href="katalog.html">Produk</a></li>
     </ul>
+    <button id="tema" type="button" aria-pressed="false" class="rounded-lg border border-stone-500 px-3 py-2 text-sm transition hover:bg-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:border-stone-400 dark:hover:bg-stone-700">Mode gelap</button>
   </nav>
   <!-- main: cuma boleh satu per halaman, id ini harus persis sama sama href di skip link -->
-  <main id="konten-utama">
+  <main id="konten-utama" class="mx-auto grid max-w-5xl gap-6 px-4 py-10 md:grid-cols-3">
     <!-- section: mengelompokkan konten yang temanya sama, id="tentang" jadi tujuan link di footer -->
-    <section id="tentang">
-      <h2>Kenapa orang balik lagi</h2>
-      <p>dikarenakan rasa yang lezat serta harga yang murah</p>
+    <section id="tentang" class="md:col-span-3">
+      <h2 class="text-2xl font-semibold">Kenapa orang balik lagi</h2>
+      <p class="mt-2 text-stone-700 dark:text-stone-300">dikarenakan rasa yang lezat serta harga yang murah</p>
     </section>
     <!-- article: satu unit konten yang berdiri sendiri, tetap masuk akal walau dicopot dari halaman ini -->
-    <article class="kartu">
+    <article class="kartu md:col-span-2">
       <figure>
-        <img src="img/Roti_premium.jpg" alt="Roti tawar premium yang dipotong, teksturnya padat" width="400" height="300">
-        <figcaption>Berat bersih 400 gram.</figcaption>
+        <img class="aspect-[4/3] w-full object-cover" src="img/Roti_premium.jpg" alt="Roti tawar premium yang dipotong, teksturnya padat" width="400" height="300">
+        <figcaption class="px-5 pt-3 text-sm text-stone-700 dark:text-stone-300">Berat bersih 400 gram.</figcaption>
       </figure>
-      <h3>Roti Tawar Premium</h3>
-      <p>Lembut, teksturnya padat...</p>
+      <h3 class="px-5 pt-3 text-xl font-semibold">Roti Tawar Premium</h3>
+      <p class="px-5 pb-5 pt-1 text-stone-700 dark:text-stone-300">Lembut, teksturnya padat...</p>
     </article>
     <!-- aside: konten sampingan, bukan alur utama, misalnya jam buka atau iklan kecil -->
-    <aside>
-      <h2>Jam Buka</h2>
-      <p>Senin sampai Sabtu, 06:30 sampai 19.00</p>
+    <aside class="kartu p-5 hover:translate-y-0 hover:shadow-md">
+      <h2 class="text-lg font-semibold">Jam Buka</h2>
+      <p class="mt-1 text-stone-700 dark:text-stone-300">Senin sampai Sabtu, 06:30 sampai 19.00</p>
     </aside>
-    <table>
+    <div class="overflow-x-auto rounded-xl shadow-md ring-1 ring-amber-200 dark:ring-stone-700 md:col-span-3">
+    <table class="w-full text-left text-sm [&_td]:px-4 [&_td]:py-3 [&_th]:px-4 [&_th]:py-3 [&_tbody_th]:font-medium">
       <!-- caption wajib, ini judul tabel, dibaca duluan sama screen reader -->
-      <caption>Lima menu tetap, harga berlaku September 2026</caption>
-      <thead>
+      <caption class="caption-top p-4 text-left text-stone-700 dark:text-stone-300">Lima menu tetap, harga berlaku September 2026</caption>
+      <thead class="bg-amber-800 text-white dark:bg-stone-700 dark:text-amber-200">
         <tr>
           <!-- scope="col" nunjukin sel ini header buat kolom di bawahnya -->
           <th scope="col">Produk</th>
@@ -60,7 +71,7 @@
           <th scope="col">Harga</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="odd:*:bg-white even:*:bg-amber-50 dark:odd:*:bg-stone-800 dark:even:*:bg-stone-900">
         <tr>
           <!-- scope="row" nunjukin sel ini header buat baris ke samping -->
           <th scope="row">Roti Coffee Buns</th>
@@ -89,38 +100,39 @@
         </tr>
       </tbody>
     </table>
-    <form action="#" method="get">
+    </div>
+    <form action="#" method="get" class="kartu p-6 hover:translate-y-0 hover:shadow-md md:col-span-3">
       <!-- fieldset ngelompokin input yang berkaitan, legend jadi judul kelompoknya -->
-      <fieldset>
-        <legend>Data pemesan</legend>
+      <fieldset class="grid gap-x-4 gap-y-3 md:grid-cols-[11rem_1fr] md:items-center">
+        <legend class="mb-3 text-lg font-semibold">Data pemesan</legend>
         <!-- for="nama" nyambung ke id="nama", klik label kursor otomatis masuk input -->
-        <label for="nama">Nama lengkap</label>
-        <input type="text" id="nama" name="nama" required>
+        <label for="nama" class="text-sm font-medium">Nama lengkap</label>
+        <input class="field" type="text" id="nama" name="nama" required>
         <!-- required: browser nolak submit kalau kosong, tanpa JavaScript -->
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <label for="email" class="text-sm font-medium">Email</label>
+        <input class="field" type="email" id="email" name="email" required>
         <!-- type="email": browser otomatis cek formatnya ada @ dan domain -->
-        <label for="telepon">Nomor WhatsApp</label>
-        <input type="tel" id="telepon" name="telepon" pattern="08[0-9]{8,11}" title="Nomor harus diawali 08, diikuti 8 sampai 11 digit angka">
+        <label for="telepon" class="text-sm font-medium">Nomor WhatsApp</label>
+        <input class="field" type="tel" id="telepon" name="telepon" pattern="08[0-9]{8,11}" title="Nomor harus diawali 08, diikuti 8 sampai 11 digit angka">
         <!-- pattern: browser cek nomor harus mulai 08, diikuti 8-11 digit -->
         <!-- id diganti "pesanan", sebelumnya kembar sama input nama di atas -->
-        <label for="pesanan">Yang dipesan</label>
-        <input type="text" id="pesanan" name="pesanan" required>
+        <label for="pesanan" class="text-sm font-medium">Yang dipesan</label>
+        <input class="field" type="text" id="pesanan" name="pesanan" required>
       </fieldset>
-      <button type="submit">Kirim</button>
+      <button class="btn mt-6" type="submit">Kirim</button>
     </form>
   </main>
   <!-- footer: bagian bawah halaman, sejajar sama main, bukan di dalamnya -->
-  <footer id="kontak">
-    <p>
+  <footer id="kontak" class="mx-auto mt-12 max-w-5xl border-t border-amber-200 px-4 py-8 text-center text-sm text-stone-700 dark:border-stone-700 dark:text-stone-300">
+    <p class="flex flex-wrap justify-center gap-x-6 gap-y-2">
       <!-- href isi alamat tujuan, target="_blank" buka tab baru, rel="noopener noreferrer" tutup celah keamanan -->
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
       <!-- mailto: buka aplikasi email default, kolom "To" otomatis keisi alamat ini -->
-      <a href="mailto:halo@bulanbakery.id">halo@bulanbakery.id</a>
+      <a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="mailto:halo@bulanbakery.id">halo@bulanbakery.id</a>
       <!-- tel: buka aplikasi telepon, format internasional (+62) di href biar dikenali semua HP -->
-      <a href="tel:+62811900123">0811 900 1234</a>
+      <a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="tel:+62811900123">0811 900 1234</a>
     </p>
-    <p>&copy; 2026 Bulan Bakery</p>
+    <p class="mt-3">&copy; 2026 Bulan Bakery</p>
   </footer>
 </body>
 </html>
