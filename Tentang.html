@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Tentang Bulan Bakery, toko roti fresh setiap hari di Ketapang.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="rez.js" defer></script>
+  <style type="text/tailwindcss">
+  @layer components {
+  .navlink { @apply rounded-md px-3 py-2 text-sm font-medium transition hover:bg-amber-100 aria-[current=page]:font-bold aria-[current=page]:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:hover:bg-stone-700 dark:focus-visible:outline-amber-300; }
+  .btn { @apply inline-block rounded-lg bg-amber-700 px-5 py-2.5 font-semibold text-white shadow transition hover:bg-amber-800 hover:shadow-md active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400 dark:focus-visible:outline-amber-300; }
+  .kartu { @apply overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-amber-200 transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-stone-800 dark:ring-stone-700; }
+  .field { @apply w-full rounded-lg border border-stone-500 bg-white px-3 py-2 shadow-sm transition focus:border-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-600 [&:user-invalid]:border-red-700 dark:border-stone-400 dark:bg-stone-800; }
+  }
+  </style>
+  <link rel="icon" href="img/logo-bulan.svg" type="image/svg+xml">
+  <title>Tentang | Bulan Bakery</title>
+  <style>
+    .bintang{position:relative;display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:.25rem}
+    .bintang input{position:absolute;opacity:0}
+    .bintang label{font-size:2.25rem;line-height:1;cursor:pointer;color:#78716c;transition:color .15s,transform .15s}
+    .bintang label:hover,.bintang label:hover~label,.bintang input:checked~label{color:#d97706}
+    .bintang label:hover{transform:scale(1.15)}
+    .bintang input:focus-visible+label{outline:3px solid #b45309;outline-offset:2px;border-radius:6px}
+    .dark .bintang label:hover,.dark .bintang label:hover~label,.dark .bintang input:checked~label{color:#fbbf24}
+    .dark .bintang input:focus-visible+label{outline-color:#fcd34d}
+  </style>
+</head>
+<body class="bg-amber-50 font-sans text-stone-900 antialiased transition-colors duration-300 dark:bg-stone-900 dark:text-stone-100">
+  <!-- skip link: elemen pertama yang kena Tab, sembunyi sampai difokus, lompat ke id di bawah -->
+  <a class="skip-link sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-amber-700 focus:px-4 focus:py-2 focus:text-white" href="#konten-utama">Lompat ke konten utama</a>
+  <!-- header: bagian atas halaman, biasanya isinya logo dan nama situs -->
+  <header class="mx-auto max-w-5xl px-4 pt-8">
+    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">Bulan Bakery</h1>
+  </header>
+  <!-- nav: khusus buat kumpulan link navigasi, bukan buat teks biasa -->
+  <nav class="mx-auto mt-4 flex max-w-5xl flex-wrap items-center justify-between gap-3 border-b border-amber-200 px-4 pb-4 dark:border-stone-700">
+    <ul class="flex gap-1">
+      <li><a class="navlink" href="index.html">Beranda</a></li>
+      <li><a class="navlink" href="katalog.html">Produk</a></li>
+      <li><a class="navlink" href="tentang.html" aria-current="page">Tentang</a></li>
+      <li><a class="navlink" href="kontak.html">Kontak</a></li>
+    </ul>
+    <button id="tema" type="button" aria-pressed="false" class="rounded-lg border border-stone-500 px-3 py-2 text-sm transition hover:bg-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:border-stone-400 dark:hover:bg-stone-700">Mode gelap</button>
+  </nav>
+  <main id="konten-utama" class="mx-auto grid max-w-5xl gap-8 px-4 py-10 md:grid-cols-3">
+    <section class="rounded-3xl bg-gradient-to-br from-amber-100 to-amber-200 p-8 shadow-md dark:from-stone-800 dark:to-stone-700 md:col-span-3 md:p-12" aria-labelledby="judul-tentang">
+      <p class="inline-block rounded-full bg-amber-800 px-3 py-1 text-xs font-semibold text-white dark:bg-amber-500 dark:text-stone-900">Dipanggang sejak jam 03.00</p>
+      <h2 id="judul-tentang" class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">Tentang Bulan Bakery</h2>
+      <p class="mt-3 max-w-2xl text-lg text-stone-700 dark:text-stone-300">Toko roti di Ketapang yang menyalakan oven sejak dini hari, supaya roti sampai ke tanganmu masih segar.</p>
+    </section>
+
+    <section class="md:col-span-3" aria-labelledby="judul-nilai">
+      <h2 id="judul-nilai" class="text-2xl font-semibold">Yang kami jaga</h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-3">
+        <article class="kartu p-6">
+          <span aria-hidden="true" class="text-3xl">🌙</span>
+          <h3 class="mt-3 text-lg font-semibold">Dipanggang dini hari</h3>
+          <p class="mt-1 text-sm text-stone-700 dark:text-stone-300">Oven menyala sejak jam tiga pagi, tanpa stok kemarin.</p>
+        </article>
+        <article class="kartu p-6">
+          <span aria-hidden="true" class="text-3xl">🌾</span>
+          <h3 class="mt-3 text-lg font-semibold">Bahan pilihan</h3>
+          <p class="mt-1 text-sm text-stone-700 dark:text-stone-300">Dari roti tawar dan croissant sampai pastry berisi krim.</p>
+        </article>
+        <article class="kartu p-6">
+          <span aria-hidden="true" class="text-3xl">🏷️</span>
+          <h3 class="mt-3 text-lg font-semibold">Harga bersahabat</h3>
+          <p class="mt-1 text-sm text-stone-700 dark:text-stone-300">Rasa yang lezat dengan harga yang murah.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="md:col-span-2" aria-labelledby="judul-cerita">
+      <h2 id="judul-cerita" class="text-2xl font-semibold">Cerita kami</h2>
+      <p class="mt-3 text-stone-700 dark:text-stone-300">Bulan Bakery berawal dari dapur kecil dengan satu tujuan: roti yang enak tidak harus mahal. Dari roti tawar hingga pastry, semuanya dibuat dengan bahan pilihan.</p>
+      <p class="mt-3 text-stone-700 dark:text-stone-300">Pelanggan kami kembali bukan karena kebetulan, tapi karena rasa dan harga yang konsisten setiap harinya.</p>
+    </section>
+    <aside class="kartu p-5 hover:translate-y-0 hover:shadow-md">
+      <h2 class="text-lg font-semibold">Jam Buka</h2>
+      <p class="mt-1 text-stone-700 dark:text-stone-300">Senin sampai Sabtu, 06:30 sampai 19.00</p>
+    </aside>
+
+    <section class="md:col-span-3" aria-labelledby="judul-testimoni">
+      <h2 id="judul-testimoni" class="text-2xl font-semibold">Kata pelanggan</h2>
+      <div class="mt-4 grid gap-4 md:grid-cols-3">
+        <figure class="kartu relative p-6 hover:translate-y-0 hover:shadow-md">
+          <span aria-hidden="true" class="absolute right-4 top-1 font-serif text-6xl text-amber-200 dark:text-stone-600">&rdquo;</span>
+          <blockquote><p class="relative">Rotinya lembut dan masih hangat waktu diambil.</p></blockquote>
+          <figcaption class="mt-4 flex items-center text-sm font-semibold">
+            <span aria-hidden="true" class="mr-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-amber-700 font-bold text-white dark:bg-amber-500 dark:text-stone-900">D</span>Dewi, Ketapang
+          </figcaption>
+        </figure>
+        <figure class="kartu relative p-6 hover:translate-y-0 hover:shadow-md">
+          <span aria-hidden="true" class="absolute right-4 top-1 font-serif text-6xl text-amber-200 dark:text-stone-600">&rdquo;</span>
+          <blockquote><p class="relative">Croissant-nya berlapis dan tidak bikin eneg.</p></blockquote>
+          <figcaption class="mt-4 flex items-center text-sm font-semibold">
+            <span aria-hidden="true" class="mr-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-amber-700 font-bold text-white dark:bg-amber-500 dark:text-stone-900">R</span>Raka, Ketapang
+          </figcaption>
+        </figure>
+        <figure class="kartu relative p-6 hover:translate-y-0 hover:shadow-md">
+          <span aria-hidden="true" class="absolute right-4 top-1 font-serif text-6xl text-amber-200 dark:text-stone-600">&rdquo;</span>
+          <blockquote><p class="relative">Harganya murah untuk rasa sebagus ini.</p></blockquote>
+          <figcaption class="mt-4 flex items-center text-sm font-semibold">
+            <span aria-hidden="true" class="mr-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-amber-700 font-bold text-white dark:bg-amber-500 dark:text-stone-900">S</span>Sinta, Ketapang
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="md:col-span-3" aria-labelledby="judul-masukan">
+      <h2 id="judul-masukan" class="text-2xl font-semibold">Masukan untuk kami</h2>
+      <div class="mt-4 grid gap-6 lg:grid-cols-5">
+        <form id="form-masukan" action="#" method="get" class="kartu p-6 hover:translate-y-0 hover:shadow-md lg:col-span-2">
+          <fieldset class="grid gap-3">
+            <legend class="mb-3 text-lg font-semibold">Tulis masukan</legend>
+            <label for="nama" class="text-sm font-medium">Nama</label>
+            <input class="field" type="text" id="nama" name="nama" required title="Nama wajib diisi">
+            <fieldset class="min-w-0 border-0 p-0">
+              <legend class="mb-1 text-sm font-medium">Penilaian</legend>
+              <div class="bintang">
+              <input type="radio" id="b5" name="nilai" value="5" required><label for="b5" title="5 - Sangat baik"><span class="sr-only">5 bintang</span><span aria-hidden="true">&#9733;</span></label>
+              <input type="radio" id="b4" name="nilai" value="4" required><label for="b4" title="4 - Baik"><span class="sr-only">4 bintang</span><span aria-hidden="true">&#9733;</span></label>
+              <input type="radio" id="b3" name="nilai" value="3" required><label for="b3" title="3 - Cukup"><span class="sr-only">3 bintang</span><span aria-hidden="true">&#9733;</span></label>
+              <input type="radio" id="b2" name="nilai" value="2" required><label for="b2" title="2 - Kurang"><span class="sr-only">2 bintang</span><span aria-hidden="true">&#9733;</span></label>
+              <input type="radio" id="b1" name="nilai" value="1" required><label for="b1" title="1 - Buruk"><span class="sr-only">1 bintang</span><span aria-hidden="true">&#9733;</span></label>
+              </div>
+              <p id="nilai-teks" class="mt-1 text-sm text-stone-700 dark:text-stone-300" aria-live="polite">Belum dinilai</p>
+            </fieldset>
+            <label for="pesan" class="text-sm font-medium">Masukan</label>
+            <textarea class="field" id="pesan" name="pesan" rows="3" required title="Tuliskan masukanmu"></textarea>
+          </fieldset>
+          <button class="btn mt-5" type="submit">Kirim masukan</button>
+        </form>
+        <div class="lg:col-span-3">
+          <p id="ringkasan" class="mb-3 flex flex-wrap items-center gap-3"></p>
+          <div class="overflow-x-auto rounded-xl shadow-md ring-1 ring-amber-200 dark:ring-stone-700">
+          <table class="w-full text-left text-sm [&_td]:px-4 [&_td]:py-3 [&_th]:px-4 [&_th]:py-3 [&_tbody_th]:font-medium">
+            <caption class="caption-top p-4 text-left text-stone-700 dark:text-stone-300">Masukan pelanggan (tersimpan di browser ini)</caption>
+            <thead class="bg-amber-800 text-white dark:bg-stone-700 dark:text-amber-200">
+              <tr><th scope="col">Nama</th><th scope="col">Penilaian</th><th scope="col">Masukan</th></tr>
+            </thead>
+            <tbody id="isi-masukan" class="odd:*:bg-white even:*:bg-amber-50 dark:odd:*:bg-stone-800 dark:even:*:bg-stone-900"></tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      (function () {
+        var f = document.getElementById('form-masukan'), b = document.getElementById('isi-masukan'),
+            r = document.getElementById('ringkasan'), tx = document.getElementById('nilai-teks'),
+            k = 'masukan-bulan-bakery', d = [],
+            N = { 5: 'Sangat baik', 4: 'Baik', 3: 'Cukup', 2: 'Kurang', 1: 'Buruk' };
+        try { d = JSON.parse(localStorage.getItem(k)) || []; } catch (e) {}
+        function el(t, c, x) { var e = document.createElement(t); if (c) e.className = c; if (x) e.textContent = x; return e; }
+        function bintang(n) {
+          var w = el('span'); w.setAttribute('aria-hidden', 'true');
+          w.appendChild(el('span', 'text-amber-600 dark:text-amber-400', '\u2605'.repeat(n)));
+          w.appendChild(el('span', 'text-stone-500', '\u2606'.repeat(5 - n)));
+          return w;
+        }
+        function teks() {
+          var c = f.querySelector('input[name=nilai]:checked');
+          tx.textContent = c ? c.value + ' - ' + N[c.value] : 'Belum dinilai';
+        }
+        function tampil() {
+          b.textContent = ''; r.textContent = '';
+          if (!d.length) {
+            var rr = el('tr'); var c = el('td', 'text-center', 'Belum ada masukan. Jadilah yang pertama.');
+            c.colSpan = 3; rr.appendChild(c); b.appendChild(rr);
+            r.textContent = 'Belum ada penilaian'; return;
+          }
+          var s = d.reduce(function (t, x) { return t + x.nilai; }, 0) / d.length;
+          r.appendChild(el('span', 'text-3xl font-bold', s.toFixed(1).replace('.', ',')));
+          var bw = bintang(Math.round(s)); bw.className = 'text-xl'; r.appendChild(bw);
+          r.appendChild(el('span', 'text-sm', 'dari ' + d.length + ' masukan'));
+          d.forEach(function (x) {
+            var rr = el('tr'), h = el('th', '', x.nama); h.scope = 'row'; rr.appendChild(h);
+            var c1 = el('td'); c1.appendChild(bintang(x.nilai)); c1.appendChild(el('span', 'ml-1', x.nilai + '/5')); rr.appendChild(c1);
+            rr.appendChild(el('td', '', x.pesan)); b.appendChild(rr);
+          });
+        }
+        f.addEventListener('change', teks);
+        f.addEventListener('submit', function (e) {
+          e.preventDefault();
+          d.unshift({ nama: f.nama.value.trim(), nilai: +f.nilai.value, pesan: f.pesan.value.trim() });
+          d = d.slice(0, 20);
+          try { localStorage.setItem(k, JSON.stringify(d)); } catch (e) {}
+          f.reset(); teks(); tampil();
+        });
+        tampil();
+      })();
+    </script>
+  </main>
+  <footer class="mx-auto mt-12 max-w-5xl border-t border-amber-200 px-4 py-8 text-center text-sm text-stone-700 dark:border-stone-700 dark:text-stone-300">
+    <nav aria-label="Navigasi footer" class="mb-4">
+      <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-medium">
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="index.html">Beranda</a></li>
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="katalog.html">Produk</a></li>
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="tentang.html">Tentang</a></li>
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="kontak.html">Kontak</a></li>
+      </ul>
+    </nav>
+    <p class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+      <a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="mailto:halo@bulanbakery.id">halo@bulanbakery.id</a>
+      <a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="tel:+62811900123">0811 900 1234</a>
+    </p>
+    <p class="mt-3">&copy; 2026 Bulan Bakery</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Detail Coffee Buns Bulan Bakery: harga, berat bersih, dan masa simpan.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="rez.js" defer></script>
+  <style type="text/tailwindcss">
+  @layer components {
+  .navlink { @apply rounded-md px-3 py-2 text-sm font-medium transition hover:bg-amber-100 aria-[current=page]:font-bold aria-[current=page]:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:hover:bg-stone-700 dark:focus-visible:outline-amber-300; }
+  .btn { @apply inline-block rounded-lg bg-amber-700 px-5 py-2.5 font-semibold text-white shadow transition hover:bg-amber-800 hover:shadow-md active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400 dark:focus-visible:outline-amber-300; }
+  .kartu { @apply overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-amber-200 transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-stone-800 dark:ring-stone-700; }
+  .field { @apply w-full rounded-lg border border-stone-500 bg-white px-3 py-2 shadow-sm transition focus:border-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-600 [&:user-invalid]:border-red-700 dark:border-stone-400 dark:bg-stone-800; }
+  }
+  </style>
+  <link rel="icon" href="img/logo-bulan.svg" type="image/svg+xml">
+  <title>Coffee Buns | Bulan Bakery</title>
+</head>
+<body class="bg-amber-50 font-sans text-stone-900 antialiased transition-colors duration-300 dark:bg-stone-900 dark:text-stone-100">
+  <!-- skip link: elemen pertama yang kena Tab, sembunyi sampai difokus, lompat ke id di bawah -->
+  <a class="skip-link sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-amber-700 focus:px-4 focus:py-2 focus:text-white" href="#konten-utama">Lompat ke konten utama</a>
+  <!-- header: bagian atas halaman, biasanya isinya logo dan nama situs -->
+  <header class="mx-auto max-w-5xl px-4 pt-8">
+    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">Bulan Bakery</h1>
+  </header>
+  <!-- nav: khusus buat kumpulan link navigasi, bukan buat teks biasa -->
+  <nav class="mx-auto mt-4 flex max-w-5xl flex-wrap items-center justify-between gap-3 border-b border-amber-200 px-4 pb-4 dark:border-stone-700">
+    <ul class="flex gap-1">
+      <li><a class="navlink" href="index.html">Beranda</a></li>
+      <li><a class="navlink" href="katalog.html">Produk</a></li>
+      <li><a class="navlink" href="tentang.html">Tentang</a></li>
+      <li><a class="navlink" href="kontak.html">Kontak</a></li>
+    </ul>
+    <button id="tema" type="button" aria-pressed="false" class="rounded-lg border border-stone-500 px-3 py-2 text-sm transition hover:bg-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:border-stone-400 dark:hover:bg-stone-700">Mode gelap</button>
+  </nav>
+  <main id="konten-utama" class="mx-auto max-w-5xl px-4 py-10">
+    <nav aria-label="Remah roti" class="mb-6 text-sm">
+      <ol class="flex gap-2"><li><a class="underline" href="katalog.html">Produk</a></li><li aria-hidden="true">/</li><li aria-current="page">Coffee Buns</li></ol>
+    </nav>
+    <article class="kartu md:grid md:grid-cols-2">
+      <figure>
+        <img class="aspect-[4/3] w-full object-cover md:h-full" src="img/COFFEE_BUNS_ROTI_BOY.jpg" alt="Coffee buns, roti manis dengan lapisan kopi renyah di luar" width="400" height="300">
+        <figcaption class="px-5 py-3 text-sm text-stone-700 dark:text-stone-300">Berat bersih 80 gram.</figcaption>
+      </figure>
+      <div class="p-6">
+        <h2 class="text-3xl font-bold">Coffee Buns <span class="ml-1 rounded-full bg-amber-100 px-2.5 py-0.5 align-middle text-xs font-semibold text-amber-900 dark:bg-amber-900 dark:text-amber-100">Terlaris</span></h2>
+        <p class="mt-3 text-stone-700 dark:text-stone-300">Roti manis bertekstur kontras, memadukan kelembutan roti di dalam dengan kerenyahan lapisan kopi di luar.</p>
+        <dl class="mt-5 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-sm">
+          <dt class="font-semibold">Harga</dt><dd>Rp 15.000</dd>
+          <dt class="font-semibold">Berat bersih</dt><dd>80 gram</dd>
+          <dt class="font-semibold">Masa simpan</dt><dd class="text-stone-700 dark:text-stone-300">3–5 hari di dalam kulkas jika disimpan dalam wadah kedap udara</dd>
+        </dl>
+        <p class="mt-6"><a class="btn" href="kontak.html">Pesan sekarang</a> <a class="ml-3 underline" href="katalog.html">Kembali ke katalog</a></p>
+      </div>
+    </article>
+  </main>
+  <footer class="mx-auto mt-12 max-w-5xl border-t border-amber-200 px-4 py-8 text-center text-sm text-stone-700 dark:border-stone-700 dark:text-stone-300">
+    <nav aria-label="Navigasi footer" class="mb-4">
+      <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-medium">
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="index.html">Beranda</a></li>
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="katalog.html">Produk</a></li>
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="tentang.html">Tentang</a></li>
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="kontak.html">Kontak</a></li>
+      </ul>
+    </nav>
+    <p class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+      <a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="mailto:halo@bulanbakery.id">halo@bulanbakery.id</a>
+      <a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="tel:+62811900123">0811 900 1234</a>
+    </p>
+    <p class="mt-3">&copy; 2026 Bulan Bakery</p>
+  </footer>
+</body>
+</html>

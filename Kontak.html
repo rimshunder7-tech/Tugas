@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Hubungi Bulan Bakery lewat email, telepon, atau form kontak.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="rez.js" defer></script>
+  <style type="text/tailwindcss">
+  @layer components {
+  .navlink { @apply rounded-md px-3 py-2 text-sm font-medium transition hover:bg-amber-100 aria-[current=page]:font-bold aria-[current=page]:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:hover:bg-stone-700 dark:focus-visible:outline-amber-300; }
+  .btn { @apply inline-block rounded-lg bg-amber-700 px-5 py-2.5 font-semibold text-white shadow transition hover:bg-amber-800 hover:shadow-md active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700 dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400 dark:focus-visible:outline-amber-300; }
+  .kartu { @apply overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-amber-200 transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-stone-800 dark:ring-stone-700; }
+  .field { @apply w-full rounded-lg border border-stone-500 bg-white px-3 py-2 shadow-sm transition focus:border-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-600 [&:user-invalid]:border-red-700 dark:border-stone-400 dark:bg-stone-800; }
+  }
+  </style>
+  <link rel="icon" href="img/logo-bulan.svg" type="image/svg+xml">
+  <title>Kontak | Bulan Bakery</title>
+</head>
+<body class="bg-amber-50 font-sans text-stone-900 antialiased transition-colors duration-300 dark:bg-stone-900 dark:text-stone-100">
+  <!-- skip link: elemen pertama yang kena Tab, sembunyi sampai difokus, lompat ke id di bawah -->
+  <a class="skip-link sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-amber-700 focus:px-4 focus:py-2 focus:text-white" href="#konten-utama">Lompat ke konten utama</a>
+  <!-- header: bagian atas halaman, biasanya isinya logo dan nama situs -->
+  <header class="mx-auto max-w-5xl px-4 pt-8">
+    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">Bulan Bakery</h1>
+  </header>
+  <!-- nav: khusus buat kumpulan link navigasi, bukan buat teks biasa -->
+  <nav class="mx-auto mt-4 flex max-w-5xl flex-wrap items-center justify-between gap-3 border-b border-amber-200 px-4 pb-4 dark:border-stone-700">
+    <ul class="flex gap-1">
+      <li><a class="navlink" href="index.html">Beranda</a></li>
+      <li><a class="navlink" href="katalog.html">Produk</a></li>
+      <li><a class="navlink" href="tentang.html">Tentang</a></li>
+      <li><a class="navlink" href="kontak.html" aria-current="page">Kontak</a></li>
+    </ul>
+    <button id="tema" type="button" aria-pressed="false" class="rounded-lg border border-stone-500 px-3 py-2 text-sm transition hover:bg-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:border-stone-400 dark:hover:bg-stone-700">Mode gelap</button>
+  </nav>
+  <main id="konten-utama" class="mx-auto grid max-w-5xl gap-6 px-4 py-10 md:grid-cols-3">
+    <section class="md:col-span-2" aria-labelledby="judul-kontak">
+      <h2 id="judul-kontak" class="text-3xl font-bold tracking-tight">Kontak</h2>
+      <form action="#" method="get" class="kartu mt-4 p-6 hover:translate-y-0 hover:shadow-md">
+        <fieldset class="grid gap-x-4 gap-y-3 md:grid-cols-[11rem_1fr] md:items-center">
+          <legend class="mb-3 text-lg font-semibold">Kirim pesan</legend>
+        <label for="nama" class="text-sm font-medium">Nama lengkap</label>
+        <input class="field" type="text" id="nama" name="nama" required>
+        <label for="email" class="text-sm font-medium">Email</label>
+        <input class="field" type="email" id="email" name="email" required>
+        <label for="pesan" class="text-sm font-medium md:self-start">Pesan</label>
+        <textarea class="field" id="pesan" name="pesan" rows="4" required></textarea>
+        </fieldset>
+        <button class="btn mt-6" type="submit">Kirim</button>
+      </form>
+    </section>
+    <aside class="kartu p-5 hover:translate-y-0 hover:shadow-md">
+      <h2 class="text-lg font-semibold">Info kontak</h2>
+      <dl class="mt-3 space-y-2 text-sm">
+        <div><dt class="font-semibold">Email</dt><dd><a class="underline" href="mailto:halo@bulanbakery.id">halo@bulanbakery.id</a></dd></div>
+        <div><dt class="font-semibold">Telepon</dt><dd><a class="underline" href="tel:+62811900123">0811 900 1234</a></dd></div>
+        <div><dt class="font-semibold">Lokasi</dt><dd class="text-stone-700 dark:text-stone-300">Ketapang</dd></div>
+        <div><dt class="font-semibold">Jam buka</dt><dd class="text-stone-700 dark:text-stone-300">Senin sampai Sabtu, 06:30 sampai 19.00</dd></div>
+      </dl>
+    </aside>
+  </main>
+  <footer class="mx-auto mt-12 max-w-5xl border-t border-amber-200 px-4 py-8 text-center text-sm text-stone-700 dark:border-stone-700 dark:text-stone-300">
+    <nav aria-label="Navigasi footer" class="mb-4">
+      <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-medium">
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="index.html">Beranda</a></li>
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="katalog.html">Produk</a></li>
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="tentang.html">Tentang</a></li>
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="kontak.html">Kontak</a></li>
+      </ul>
+    </nav>
+    <p class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+      <a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="mailto:halo@bulanbakery.id">halo@bulanbakery.id</a>
+      <a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="tel:+62811900123">0811 900 1234</a>
+    </p>
+    <p class="mt-3">&copy; 2026 Bulan Bakery</p>
+  </footer>
+</body>
+</html>

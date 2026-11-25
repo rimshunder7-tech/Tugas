@@ -9,7 +9,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <!-- panggil file css, semua warna dan bentuk kotak diatur dari sini -->
         <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-        <script src="assets/js/tema.js"></script>
+        <script src="rez.js" defer></script>
         <style type="text/tailwindcss">
           @layer components {
             .navlink { @apply rounded-md px-3 py-2 text-sm font-medium transition hover:bg-amber-100 aria-[current=page]:font-bold aria-[current=page]:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:hover:bg-stone-700 dark:focus-visible:outline-amber-300; }
@@ -35,6 +35,8 @@
     <ul class="flex gap-1">
       <li><a class="navlink" href="index.html" aria-current="page">Beranda</a></li>
       <li><a class="navlink" href="katalog.html">Produk</a></li>
+      <li><a class="navlink" href="tentang.html">Tentang</a></li>
+      <li><a class="navlink" href="kontak.html">Kontak</a></li>
     </ul>
     <button id="tema" type="button" aria-pressed="false" class="rounded-lg border border-stone-500 px-3 py-2 text-sm transition hover:bg-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:border-stone-400 dark:hover:bg-stone-700">Mode gelap</button>
   </nav>
@@ -121,9 +123,23 @@
       </fieldset>
       <button class="btn mt-6" type="submit">Kirim</button>
     </form>
+    <!-- CTA: ajakan bertindak, satu tombol utama di akhir halaman -->
+    <section class="rounded-2xl bg-amber-800 px-6 py-10 text-center text-white shadow-lg dark:bg-stone-700 md:col-span-3" aria-labelledby="judul-cta">
+      <h2 id="judul-cta" class="text-2xl font-semibold">Pesan roti segar untuk hari ini</h2>
+      <p class="mx-auto mt-2 max-w-xl text-amber-100 dark:text-stone-200">Hubungi kami lewat halaman kontak, pesananmu kami siapkan.</p>
+      <a class="mt-6 inline-block rounded-lg bg-white px-5 py-2.5 font-semibold text-amber-900 shadow transition hover:bg-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="kontak.html">Hubungi Kami</a>
+    </section>
   </main>
   <!-- footer: bagian bawah halaman, sejajar sama main, bukan di dalamnya -->
   <footer id="kontak" class="mx-auto mt-12 max-w-5xl border-t border-amber-200 px-4 py-8 text-center text-sm text-stone-700 dark:border-stone-700 dark:text-stone-300">
+    <nav aria-label="Navigasi footer" class="mb-4">
+      <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-medium">
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="index.html">Beranda</a></li>
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="katalog.html">Produk</a></li>
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="tentang.html">Tentang</a></li>
+        <li><a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="kontak.html">Kontak</a></li>
+      </ul>
+    </nav>
     <p class="flex flex-wrap justify-center gap-x-6 gap-y-2">
       <!-- href isi alamat tujuan, target="_blank" buka tab baru, rel="noopener noreferrer" tutup celah keamanan -->
       <a class="underline hover:text-amber-800 dark:hover:text-amber-300" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
