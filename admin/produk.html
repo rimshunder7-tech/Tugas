@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../img/logo-bulan.svg" type="image/svg+xml">
+  <title>Produk | Admin Bulan Bakery</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="../rez.js" defer></script>
+  <style type="text/tailwindcss">
+    @layer components {
+      .sidelink { @apply flex items-center rounded-lg px-3 py-2 text-sm font-medium transition hover:bg-amber-100 [&[aria-current]]:bg-amber-700 [&[aria-current]]:text-white dark:hover:bg-stone-700 dark:[&[aria-current]]:bg-amber-500 dark:[&[aria-current]]:text-stone-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:focus-visible:outline-amber-300; }
+      .btn { @apply inline-block rounded-lg bg-amber-700 px-5 py-2.5 font-semibold text-white shadow transition hover:bg-amber-800 active:translate-y-px dark:bg-amber-500 dark:text-stone-900 dark:hover:bg-amber-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:focus-visible:outline-amber-300; }
+      .btn2 { @apply inline-block rounded-lg border border-stone-500 px-5 py-2.5 font-semibold transition hover:bg-amber-100 dark:border-stone-400 dark:hover:bg-stone-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:focus-visible:outline-amber-300; }
+      .kartu { @apply rounded-2xl bg-white shadow-md ring-1 ring-amber-200 dark:bg-stone-800 dark:ring-stone-700; }
+      .field { @apply w-full rounded-lg border border-stone-500 bg-white px-3 py-2 shadow-sm transition focus:border-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-600 [&:user-invalid]:border-red-700 dark:border-stone-400 dark:bg-stone-800; }
+      .aksi { @apply inline-block rounded-md border px-2.5 py-1 text-xs font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:focus-visible:outline-amber-300; }
+      .badge-aktif { @apply inline-block rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-900 dark:bg-green-900 dark:text-green-100; }
+      .badge-menipis { @apply inline-block rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-900 dark:bg-amber-900 dark:text-amber-100; }
+      .badge-habis { @apply inline-block rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-900 dark:bg-red-900 dark:text-red-100; }
+    }
+  </style>
+</head>
+<body class="bg-amber-50 font-sans text-stone-900 antialiased transition-colors duration-300 dark:bg-stone-900 dark:text-stone-100">
+  <a href="#konten-utama" class="skip-link sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-amber-700 focus:px-4 focus:py-2 focus:text-white">Lompat ke konten utama</a>
+  <div class="md:flex md:min-h-screen">
+    <aside class="border-b border-amber-200 bg-white p-4 dark:border-stone-700 dark:bg-stone-800 md:sticky md:top-0 md:h-screen md:w-64 md:shrink-0 md:border-b-0 md:border-r">
+      <p class="mb-4 text-xl font-bold">Bulan Bakery <span class="block text-xs font-medium text-stone-700 dark:text-stone-300">Panel Admin</span></p>
+      <nav aria-label="Menu admin">
+        <ul class="flex flex-wrap gap-1 md:flex-col">
+        <li><a class="sidelink" href="dashboard.html">Dashboard</a></li>
+        <li><a class="sidelink" href="produk.html" aria-current="page">Produk</a></li>
+        <li><a class="sidelink" href="tambah-produk.html">Tambah Produk</a></li>
+        </ul>
+      </nav>
+      <div class="mt-4 flex flex-wrap items-center gap-3 border-t border-amber-200 pt-4 text-sm dark:border-stone-700">
+        <a class="underline" href="../index.html">Lihat situs</a>
+        <a class="underline" href="login.html">Keluar</a>
+        <button id="tema" type="button" aria-pressed="false" class="rounded-lg border border-stone-500 px-3 py-2 text-xs transition hover:bg-amber-100 dark:border-stone-400 dark:hover:bg-stone-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-700 dark:focus-visible:outline-amber-300">Mode gelap</button>
+      </div>
+    </aside>
+    <main id="konten-utama" class="min-w-0 flex-1 px-4 py-8 md:px-8">
+      <h1 class="text-3xl font-bold tracking-tight">Produk</h1>
+      <p class="mt-1 text-stone-700 dark:text-stone-300">Kelola daftar produk yang tampil di katalog.</p>
+      <p class="mt-5"><a class="btn" href="tambah-produk.html">Tambah produk</a></p>
+      <div class="mt-5 overflow-x-auto rounded-xl shadow-md ring-1 ring-amber-200 dark:ring-stone-700">
+        <table class="w-full text-left text-sm [&_td]:px-4 [&_td]:py-3 [&_th]:px-4 [&_th]:py-3 [&_tbody_th]:font-medium">
+          <caption class="caption-top p-4 text-left text-stone-700 dark:text-stone-300">Daftar produk dan status ketersediaan</caption>
+          <thead class="bg-amber-800 text-white dark:bg-stone-700 dark:text-amber-200">
+            <tr><th scope="col">Produk</th><th scope="col">Kategori</th><th scope="col">Harga</th><th scope="col">Status</th><th scope="col">Aksi</th></tr>
+          </thead>
+          <tbody class="odd:*:bg-white even:*:bg-amber-50 dark:odd:*:bg-stone-800 dark:even:*:bg-stone-900">
+          <tr>
+            <th scope="row">Coffee Buns</th>
+            <td>Roti manis</td>
+            <td>Rp 15.000</td>
+            <td><span class="badge-aktif">Aktif</span></td>
+            <td>
+              <div class="flex flex-wrap gap-2">
+                <a class="aksi border-stone-500 hover:bg-amber-100 dark:border-stone-400 dark:hover:bg-stone-700" href="../katalog.html" aria-label="Lihat Coffee Buns di katalog">Lihat</a>
+                <a class="aksi border-amber-700 text-amber-900 hover:bg-amber-100 dark:border-amber-400 dark:text-amber-200 dark:hover:bg-stone-700" href="edit-produk.html?id=1" aria-label="Edit Coffee Buns">Edit</a>
+                <button type="button" class="aksi border-red-700 text-red-800 hover:bg-red-50 dark:border-red-400 dark:text-red-300 dark:hover:bg-stone-700" data-hapus="Coffee Buns" aria-label="Hapus Coffee Buns">Hapus</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Kornet Coklat</th>
+            <td>Roti manis</td>
+            <td>Rp 22.000</td>
+            <td><span class="badge-aktif">Aktif</span></td>
+            <td>
+              <div class="flex flex-wrap gap-2">
+                <a class="aksi border-stone-500 hover:bg-amber-100 dark:border-stone-400 dark:hover:bg-stone-700" href="../katalog.html" aria-label="Lihat Kornet Coklat di katalog">Lihat</a>
+                <a class="aksi border-amber-700 text-amber-900 hover:bg-amber-100 dark:border-amber-400 dark:text-amber-200 dark:hover:bg-stone-700" href="edit-produk.html?id=2" aria-label="Edit Kornet Coklat">Edit</a>
+                <button type="button" class="aksi border-red-700 text-red-800 hover:bg-red-50 dark:border-red-400 dark:text-red-300 dark:hover:bg-stone-700" data-hapus="Kornet Coklat" aria-label="Hapus Kornet Coklat">Hapus</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Croissant</th>
+            <td>Pastry</td>
+            <td>Rp 20.000</td>
+            <td><span class="badge-menipis">Stok Menipis</span></td>
+            <td>
+              <div class="flex flex-wrap gap-2">
+                <a class="aksi border-stone-500 hover:bg-amber-100 dark:border-stone-400 dark:hover:bg-stone-700" href="../katalog.html" aria-label="Lihat Croissant di katalog">Lihat</a>
+                <a class="aksi border-amber-700 text-amber-900 hover:bg-amber-100 dark:border-amber-400 dark:text-amber-200 dark:hover:bg-stone-700" href="edit-produk.html?id=3" aria-label="Edit Croissant">Edit</a>
+                <button type="button" class="aksi border-red-700 text-red-800 hover:bg-red-50 dark:border-red-400 dark:text-red-300 dark:hover:bg-stone-700" data-hapus="Croissant" aria-label="Hapus Croissant">Hapus</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Cromboloni</th>
+            <td>Pastry</td>
+            <td>Rp 32.000</td>
+            <td><span class="badge-aktif">Aktif</span></td>
+            <td>
+              <div class="flex flex-wrap gap-2">
+                <a class="aksi border-stone-500 hover:bg-amber-100 dark:border-stone-400 dark:hover:bg-stone-700" href="../katalog.html" aria-label="Lihat Cromboloni di katalog">Lihat</a>
+                <a class="aksi border-amber-700 text-amber-900 hover:bg-amber-100 dark:border-amber-400 dark:text-amber-200 dark:hover:bg-stone-700" href="edit-produk.html?id=4" aria-label="Edit Cromboloni">Edit</a>
+                <button type="button" class="aksi border-red-700 text-red-800 hover:bg-red-50 dark:border-red-400 dark:text-red-300 dark:hover:bg-stone-700" data-hapus="Cromboloni" aria-label="Hapus Cromboloni">Hapus</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Pretzel</th>
+            <td>Pastry</td>
+            <td>Rp 24.000</td>
+            <td><span class="badge-habis">Habis</span></td>
+            <td>
+              <div class="flex flex-wrap gap-2">
+                <a class="aksi border-stone-500 hover:bg-amber-100 dark:border-stone-400 dark:hover:bg-stone-700" href="../katalog.html" aria-label="Lihat Pretzel di katalog">Lihat</a>
+                <a class="aksi border-amber-700 text-amber-900 hover:bg-amber-100 dark:border-amber-400 dark:text-amber-200 dark:hover:bg-stone-700" href="edit-produk.html?id=5" aria-label="Edit Pretzel">Edit</a>
+                <button type="button" class="aksi border-red-700 text-red-800 hover:bg-red-50 dark:border-red-400 dark:text-red-300 dark:hover:bg-stone-700" data-hapus="Pretzel" aria-label="Hapus Pretzel">Hapus</button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <script>
+        document.querySelectorAll('[data-hapus]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            if (confirm('Hapus produk "' + b.dataset.hapus + '"?')) b.closest('tr').remove();
+          });
+        });
+      </script>
+    </main>
+  </div>
+</body>
+</html>
